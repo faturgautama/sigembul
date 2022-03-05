@@ -1,0 +1,16 @@
+ - Update 30 Januari 2022
+	1) Splash Screen changed to UDINUS Logo
+	2) Penambahan keterangan - keterangan pada menu Login
+	2) Satuan (kg / cm) pada Label Panjang Badan, Berat Badan, Lingkar Kepala, Lingkar Lengan Atas 
+	3) Optimizing Alert Hasil Pemeriksaan Stunting
+	4) Penambahan Field Tanggal Lahir pada menu Hitung Stunting
+	5) Auto Calculate Field Umur pada menuHitung Stunting
+=======================================================================================================
+ - Update 05 Februari 2022
+	1) Splash Screen changed to new image
+	2) Updated Hasil Hitung Stunting
+	3) Penambahan field Tanggal Pemeriksaan
+=======================================================================================================
+ - Update 06 Februari 2022
+	1) Penambahan fitur Materi Edukasi (Open file pdf in web browser)
+	2) Penambahan fitur Hasil Pemeriksaan (Download file excel in web browser)

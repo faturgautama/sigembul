@@ -1,0 +1,155 @@
+<FlexboxLayout flexDirection="column" class="flexboxLoginStyle" justifyContent="center" padding="0">
+    <StackLayout marginTop="60">
+        <label text="Hitung Stunting" fontSize="30" marginBottom="50" paddingLeft="20">
+        </label>
+
+        <TabView [selectedIndex]="SelectedTabIndex" (selectedIndexChanged)="onSelectedIndexchanged($event)"
+            tabBackgroundColor="rgba(255, 255, 255, 0)" tabTextColor="black" selectedTabTextColor="black">
+            <ScrollView *tabItem="{title: 'Input Pemeriksaan'}" (tap)="SelectedTabIndex = 0">
+                <GridLayout rows="auto, auto, auto, auto, auto, auto, auto" paddingTop="20"
+                    [formGroup]="FormHitungStunting">
+                    <!-- Berat Badan / Tinggi Badan -->
+                    <FlexboxLayout row="1" flexDirection="row">
+                        <FlexboxLayout flexDirection="column">
+                            <label text="Berat Badan (kg)" class="inputFieldLabelStyle"></label>
+                            <TextField class="inputFieldStyle" formControlName="berat_badan" [keyboardType]="'number'">
+                            </TextField>
+                        </FlexboxLayout>
+                        <FlexboxLayout flexDirection="column">
+                            <label text="Panjang Badan (cm)" class="inputFieldLabelStyle"></label>
+                            <TextField class="inputFieldStyle" formControlName="tinggi_badan" [keyboardType]="'number'">
+                            </TextField>
+                        </FlexboxLayout>
+                    </FlexboxLayout>
+
+                    <!-- Lingkar Lengan / Lingkar Kepala -->
+                    <FlexboxLayout row="2" flexDirection="row">
+                        <FlexboxLayout flexDirection="column">
+                            <label text="Lingkar Lengan Atas (cm)" class="inputFieldLabelStyle font13"></label>
+                            <TextField class="inputFieldStyle" formControlName="lingkar_lengan"
+                                [keyboardType]="'number'">
+                            </TextField>
+                        </FlexboxLayout>
+                        <FlexboxLayout flexDirection="column">
+                            <label text="Lingkar Kepala (cm)" class="inputFieldLabelStyle"></label>
+                            <TextField class="inputFieldStyle" formControlName="lingkar_kepala"
+                                [keyboardType]="'number'">
+                            </TextField>
+                        </FlexboxLayout>
+                    </FlexboxLayout>
+
+                    <!-- Tanggal Lahir / Umur -->
+                    <FlexboxLayout row="3" flexDirection="row">
+                        <FlexboxLayout flexDirection="column">
+                            <label text="Tanggal Lahir" class="inputFieldLabelStyle"></label>
+                            <DatePickerField class="inputFieldStyle" dateFormat="dd MMM yyyy"
+                                (dateChange)="onChangeDatepicker($event)">
+                            </DatePickerField>
+                        </FlexboxLayout>
+
+                        <FlexboxLayout flexDirection="column">
+                            <label text="Umur (Bulan)" class="inputFieldLabelStyle"></label>
+                            <TextField class="inputFieldStyle readonly" formControlName="umur_bulan" [editable]="false">
+                            </TextField>
+                        </FlexboxLayout>
+                    </FlexboxLayout>
+
+                    <!-- Jenis Kelamin / Tanggal Pemeriksaan -->
+                    <FlexboxLayout row="4" flexDirection="row">
+                        <FlexboxLayout flexDirection="column" width="50%">
+                            <label text="Jenis Kelamin" class="inputFieldLabelStyle"></label>
+                            <DropDown class="dropdownFieldStyle" itemsTextAlignment="left" [items]="DataJenisKelamin"
+                                backgroundColor="white" (selectedIndexChanged)="onChangeJenisKelamin($event)">
+                            </DropDown>
+                        </FlexboxLayout>
+
+                        <FlexboxLayout flexDirection="column" width="50%">
+                            <label text="Tanggal Pemeriksaan" class="inputFieldLabelStyle font13"></label>
+                            <DatePickerField class="inputFieldStyle" dateFormat="dd MMM yyyy"
+                                (dateChange)="onChangeDatepickerTglPemeriksaan($event)">
+                            </DatePickerField>
+                        </FlexboxLayout>
+                    </FlexboxLayout>
+
+                    <!-- Masih Asi -->
+                    <FlexboxLayout row="5" flexDirection="row" alignItems="center">
+                        <label text="Masih Asi" class="inputFieldLabelStyle"></label>
+                        <Switch checked="true" (checkedChange)="onChangeMasihAsi($event)">
+                        </Switch>
+                    </FlexboxLayout>
+
+                    <!-- Button -->
+                    <FlexboxLayout row="6" flexDirection="column">
+                        <button text="Hitung Pemeriksaan" fontSize="15" class="save"
+                            (tap)="onSubmitFormHitungStunting(FormHitungStunting.value)">
+                        </button>
+                    </FlexboxLayout>
+
+                    <ActivityIndicator rowSpan="7" [busy]="showSpinner"></ActivityIndicator>
+
+                </GridLayout>
+            </ScrollView>
+            <ScrollView *tabItem="{title: 'Hasil Pemeriksaan'}" (tap)="SelectedTabIndex = 1">
+                <GridLayout *ngIf="ResultHitungStunting.length > 0" padding="20" rows="auto, auto, auto, auto, auto">
+                    <FlexboxLayout *ngFor="let item of ResultHitungStunting; let i = index" row="{{ i }}"
+                        flexDirection="column" marginBottom="10" padding="10 20" class="flexboxCardLogin">
+                        <FlexboxLayout flexDirection="column" marginBottom="10">
+                            <label text="Status Gizi {{ item.jenis_pemeriksaan }}" class="listViewHeader" fontSize="18"
+                                marginBottom="0">
+                            </label>
+                        </FlexboxLayout>
+
+                        <FlexboxLayout flexDirection="row" marginBottom="0">
+                            <FlexboxLayout flexDirection="column" marginBottom="5" width="30%">
+                                <label text="Min" class="cardItemContent">
+                                </label>
+                                <label text="{{ item.min }}" class="cardItemSubContent">
+                                </label>
+                            </FlexboxLayout>
+
+                            <FlexboxLayout flexDirection="column" marginBottom="5" width="30%">
+                                <label text="Max" class="cardItemContent">
+                                </label>
+                                <label text="{{ item.max }}" class="cardItemSubContent">
+                                </label>
+                            </FlexboxLayout>
+
+                            <FlexboxLayout flexDirection="column" marginBottom="0" width="40%">
+                                <label text="Range" class="cardItemContent">
+                                </label>
+                                <label text="{{ item.range }}" class="cardItemSubContent">
+                                </label>
+                            </FlexboxLayout>
+                        </FlexboxLayout>
+
+                        <FlexboxLayout flexDirection="column" marginBottom="0">
+                            <label text="Status Gizi" class="cardItemContent">
+                            </label>
+                            <label text="{{ item.status_gizi }}" class="cardItemSubContent">
+                            </label>
+                        </FlexboxLayout>
+
+                        <FlexboxLayout flexDirection="column" marginBottom="0">
+                            <label text="Z Score" class="cardItemContent">
+                            </label>
+                            <label text="{{ item.z_score }}" class="cardItemSubContent">
+                            </label>
+                        </FlexboxLayout>
+
+                        <FlexboxLayout flexDirection="column" marginBottom="0">
+                            <label text="Feedback" class="cardItemContent">
+                            </label>
+                            <label text="{{ item.feedback }}" class="cardItemSubContent" textWrap="true"
+                                verticalAlignment="top" textAlignmen="justify">
+                            </label>
+                        </FlexboxLayout>
+                    </FlexboxLayout>
+                </GridLayout>
+
+                <FlexboxLayout *ngIf="ResultHitungStunting.length < 1" padding="20" flexDirection="column">
+                    <label text="Tidak Ada Hasil Ditampilkan" class="listViewContent" alignSelf="center"></label>
+                </FlexboxLayout>
+            </ScrollView>
+        </TabView>
+    </StackLayout>
+</FlexboxLayout>

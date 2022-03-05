@@ -1,0 +1,33 @@
+<Page class="ns-light">
+    <FlexboxLayout flexDirection="column" class="flexboxLoginStyle" justifyContent="center">
+        <StackLayout padding="0 20" [formGroup]="FormAuthentication">
+            <label text="Login" fontSize="30" textAlignment="left" marginBottom="30" marginLeft="20">
+            </label>
+
+            <!-- Email -->
+            <FlexboxLayout flexDirection="column" marginBottom="0">
+                <ns-heading [headingText]="'Email'" [headingColor]="'#2f80ed'"></ns-heading>
+                <TextField class="inputFieldStyle" formControlName="email"></TextField>
+            </FlexboxLayout>
+
+            <!-- Password -->
+            <FlexboxLayout flexDirection="column">
+                <ns-heading [headingText]="'Password'" [headingColor]="'#2f80ed'"></ns-heading>
+                <TextField class="inputFieldStyle" secure="true" formControlName="password"></TextField>
+            </FlexboxLayout>
+
+            <!-- Forgot Password -->
+            <FlexboxLayout flexDirection="column" marginRight="20">
+                <ns-heading alignSelf="flex-end" [headingText]="'Forgot Password?'" [headingColor]="'#2f80ed'">
+                </ns-heading>
+            </FlexboxLayout>
+
+            <!-- Password -->
+            <FlexboxLayout flexDirection="column" marginRight="10">
+                <button text="Login" alignSelf="flex-end" width="150" fontSize="20" class="login"
+                    (tap)="onSubmitFormAuthentication(FormAuthentication.value)">
+                </button>
+            </FlexboxLayout>
+        </StackLayout>
+    </FlexboxLayout>
+</Page>

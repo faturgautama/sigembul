@@ -1,0 +1,19 @@
+<FlexboxLayout flexDirection="column" class="flexboxBerandaStyle" padding="0">
+    <StackLayout marginTop="70">
+        <label text="Edukasi" fontSize="30" marginBottom="70" paddingLeft="20">
+        </label>
+
+        <ScrollView height="100%">
+            <FlexboxLayout flexDirection="column">
+                <FlexboxLayout *ngFor="let item of EdukasiDatasource" class="flexboxCardEdukasi" flexDirection="column"
+                    backgroundColor="{{ item.color }}" (tap)="onClickEdukasi(item)">
+                    <label text="{{ item.title }}" marginBottom="0" textWrap="true" fontSize="18" style="color: white">
+                    </label>
+                    <label text="{{ item.description }}" marginBottom="0" textWrap="true" fontSize="13"
+                        style="color: white">
+                    </label>
+                </FlexboxLayout>
+            </FlexboxLayout>
+        </ScrollView>
+    </StackLayout>
+</FlexboxLayout>

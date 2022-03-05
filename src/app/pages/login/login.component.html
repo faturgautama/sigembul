@@ -1,0 +1,58 @@
+<Page class="ns-light">
+    <FlexboxLayout flexDirection="column" class="flexboxLoginStyle" justifyContent="center" padding="0 20">
+        <ScrollView>
+            <GridLayout rows="auto, auto, auto, auto" padding="0">
+                <!-- Title -->
+                <FlexboxLayout row="0" flexDirection="column" marginBottom="50">
+                    <label text="Si-GEMBUL" class="listViewHeader" textAlignment="center" fontSize="30">
+                    </label>
+
+                    <label text="Sistem Informasi Terintegrasi Status Gizi Balita Unggul" class="listViewHeader"
+                        textAlignment="center" fontSize="11" marginBottom="0">
+                    </label>
+                </FlexboxLayout>
+
+                <!-- Button -->
+                <FlexboxLayout row="1" flexDirection="column">
+                    <!-- Button Hitung Stunting -->
+                    <button text="Hitung Stunting" fontSize="20" class="hijau" (tap)="onNavigateToHitungStunting()">
+                    </button>
+
+                    <!-- Button Login -->
+                    <button text="Login" fontSize="20" class="hijau" (tap)="onNavigateToAuthentication()">
+                    </button>
+                </FlexboxLayout>
+
+                <!-- Tim Pengembang -->
+                <FlexboxLayout row="2" flexDirection="column" marginTop="30" marginBottom="10" class="flexboxCardLogin">
+                    <label text="Tim Pengembang" class="listViewHeader" fontSize="16" textAlignment="center"
+                        marginBottom="0">
+                    </label>
+
+                    <label text="Vilda Ana Veria Setyawati, S.Gz, M.Gizi" fontSize="14" textAlignment="center"
+                        marginBottom="0">
+                    </label>
+
+                    <label text="Eti Rimawati, SKM, M.Kes" fontSize="14" textAlignment="center" marginBottom="0">
+                    </label>
+
+                    <label text="Agung Wardoyo, S.Kom" fontSize="14" textAlignment="center">
+                    </label>
+                </FlexboxLayout>
+
+                <!-- Keterangan -->
+                <FlexboxLayout row="3" flexDirection="column" class="flexboxCardLogin">
+                    <label text="Aplikasi Ini Merupakan Produk" fontSize="13" textAlignment="center" marginTop="0">
+                    </label>
+
+                    <label text="Program Riset Keilmuan 2022" fontSize="13" textAlignment="center" marginBottom="0">
+                    </label>
+
+                    <label text="Merdeka Belajar-Kampus Merdeka (MBKM)" fontSize="12" textAlignment="center"
+                        marginBottom="0">
+                    </label>
+                </FlexboxLayout>
+            </GridLayout>
+        </ScrollView>
+    </FlexboxLayout>
+</Page>

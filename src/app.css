@@ -1,25 +1,190 @@
-/*
-In NativeScript, the app.css file is where you place CSS rules that
-you would like to apply to your entire application. Check out
-http://docs.nativescript.org/ui/styling for a full list of the CSS
-selectors and properties you can use to style UI components.
+@import "../node_modules/@nativescript/theme/css/core.css";
+@import "../node_modules/@nativescript/theme/css/default.css";
 
-/*
-In many cases you may want to use the NativeScript core theme instead
-of writing your own CSS rules. You can learn more about the
-NativeScript core theme at https://github.com/nativescript/theme
-The imported CSS rules must precede all other types of rules.
-*/
-@import '@nativescript/theme/css/core.css';
-@import '@nativescript/theme/css/default.css';
+:root {
+  --biru-tua: #2f80ed;
+  --biru-muda: #97bff6;
+  --hijau: #72ba8f;
+}
 
-/* Place any CSS rules you want to apply on both iOS and Android here.
-This is where the vast majority of your CSS code goes. */
+.imageNavbarStyle {
+  width: 25;
+}
 
-/*
-The following CSS rule changes the font size of all Buttons that have the
-"-primary" class modifier.
-*/
-Button.-primary {
+.flexboxNavbarStyle {
+  padding: 10 20;
+  margin-left: 10;
+  margin-right: 10;
+  margin-bottom: 20;
+  background-color: #fff;
+  border-radius: 15;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
+.flexboxLoginStyle {
+  background-image: url("~/app/assets/image/Frame_6.png");
+  background-position: top center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.flexboxBerandaStyle {
+  background-image: url("~/app/assets/image/wave_top.png");
+  background-color: #ececec;
+  background-position: top top;
+  background-repeat: no-repeat;
+}
+
+.cardStyle {
+  background-color: #fff;
+  margin: 20;
+  border-radius: 50;
+}
+
+.flexboxCardLogin {
+  border-radius: 20;
+  background-color: #fff;
+  height: auto;
+  justify-content: center;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  padding: 10;
+  margin-left: 10;
+  margin-right: 10;
+}
+
+.flexboxCardBeranda {
+  border-radius: 20;
+  background-color: #fff;
+  height: 150;
+  justify-content: center;
+  margin: 10;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
+.flexboxCardInputDataBalita {
+  border-radius: 20;
+  background-color: #fff;
+  height: 150;
+  margin: 10;
+  box-shadow: hsla(0, 0%, 39%, 0.2) 0px 2px 8px 0px;
+}
+
+.flexboxCardEdukasi {
+  border-radius: 20;
+  height: auto;
+  margin: 10;
+  box-shadow: hsla(0, 0%, 39%, 0.2) 0px 2px 8px 0px;
+  justify-content: center;
+  padding: 0 20;
+}
+
+.inputFieldLabelStyle {
+  font-size: 15;
+  color: #707070;
+  text-align: left;
+  margin-left: 20;
+}
+
+.inputFieldLabelStyle.font13 {
+  font-size: 13;
+}
+
+.inputFieldStyle {
+  font-size: 15;
+  border-color: #c6c6c6;
+  background-color: #fff;
+  color: black;
+  border-width: 1;
+  border-radius: 10;
+  padding-left: 12;
+  height: 45;
+  margin-bottom: 15;
+  width: 100%;
+}
+
+.inputFieldStyle.readonly {
+  background-color: #c6c6c6;
+}
+
+.dropdownFieldStyle {
+  font-size: 15;
+  border-color: #c6c6c6;
+  background-color: #fff;
+  border-width: 1;
+  border-radius: 10;
+  padding-top: 6.5;
+  padding-left: 10;
+  height: 45;
+  margin-top: 5;
+  margin-bottom: 15;
+  margin-left: 15;
+  margin-right: 15;
+  width: 100%;
+}
+
+.listViewHeader {
   font-size: 18;
+  color: #2f80ed;
+  margin-bottom: -10;
+}
+
+.listViewContent {
+  font-size: 15;
+  color: #000000;
+  margin-bottom: -10;
+}
+
+.listViewSubContent {
+  color: #707070;
+  margin-bottom: -10;
+}
+
+.cardItemContent {
+  font-size: 15;
+  color: #707070;
+  margin-bottom: -10;
+}
+
+.cardItemSubContent {
+  font-size: 15;
+  color: #2f80ed;
+}
+
+button {
+  border-radius: 10;
+  color: white;
+}
+
+button.login {
+  height: 45;
+  background-color: #2f80ed;
+}
+
+button.navigation {
+  height: 45;
+  background-color: #72ba8f;
+}
+
+button.save {
+  height: 45;
+  background-color: #72ba8f;
+  width: 100%;
+  margin-left: 15;
+  margin-right: 15;
+}
+
+button.biru {
+  margin-bottom: 20;
+  color: white;
+  background-color: #2f80ed;
+  height: 55;
+  border-radius: 10;
+}
+
+button.hijau {
+  margin-bottom: 20;
+  color: black;
+  background-color: #72ba8f;
+  height: 55;
+  border-radius: 10;
 }

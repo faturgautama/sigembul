@@ -1,0 +1,86 @@
+<Page xmlns="http://schemas.nativescript.org/tns.xsd" xmlns:datetime="@nativescript/datetimepicker">
+    <FlexboxLayout flexDirection="column" class="flexboxBerandaStyle" justifyContent="center" padding="0">
+        <StackLayout marginTop="70">
+            <label text="Input Data Ibu" fontSize="30" marginBottom="50" paddingLeft="20">
+            </label>
+
+            <TabView selectedIndex="0" tabBackgroundColor="rgba(255, 255, 255, 0)" tabTextColor="black"
+                selectedTabTextColor="black">
+                <ScrollView *tabItem="{title: 'Input Data Ibu'}">
+                    <GridLayout rows="auto, auto, auto, auto, auto, auto, auto" paddingTop="20"
+                        [formGroup]="FormInputIbu">
+                        <!-- NIK Ibu -->
+                        <FlexboxLayout row="0" flexDirection="column">
+                            <label text="NIK Ibu" class="inputFieldLabelStyle"></label>
+                            <TextField class="inputFieldStyle" formControlName="nik_ibu">
+                            </TextField>
+                        </FlexboxLayout>
+
+                        <!-- Nama Lengkap Ibu -->
+                        <FlexboxLayout row="1" flexDirection="column">
+                            <label text="Nama Lengkap Ibu" class="inputFieldLabelStyle"></label>
+                            <TextField class="inputFieldStyle" formControlName="nama_ibu">
+                            </TextField>
+                        </FlexboxLayout>
+
+                        <!-- No. Handphone -->
+                        <FlexboxLayout row="2" flexDirection="column">
+                            <label text="No. Handphone" class="inputFieldLabelStyle"></label>
+                            <TextField class="inputFieldStyle" formControlName="no_hp">
+                            </TextField>
+                        </FlexboxLayout>
+
+                        <!-- Alamat -->
+                        <FlexboxLayout row="3" flexDirection="column">
+                            <label text="Alamat" class="inputFieldLabelStyle"></label>
+                            <TextField class="inputFieldStyle" formControlName="domisili">
+                            </TextField>
+                        </FlexboxLayout>
+
+                        <!-- RT / RW -->
+                        <FlexboxLayout row="4" flexDirection="row">
+                            <FlexboxLayout flexDirection="column">
+                                <label text="RT" class="inputFieldLabelStyle"></label>
+                                <TextField class="inputFieldStyle" formControlName="rt">
+                                </TextField>
+                            </FlexboxLayout>
+                            <FlexboxLayout flexDirection="column">
+                                <label text="RW" class="inputFieldLabelStyle"></label>
+                                <TextField class="inputFieldStyle" formControlName="rw">
+                                </TextField>
+                            </FlexboxLayout>
+                        </FlexboxLayout>
+
+                        <!-- Simpan -->
+                        <FlexboxLayout row="5" flexDirection="column">
+                            <button text="Simpan Data Ibu" fontSize="15" class="save"
+                                (tap)="onSubmitFormInputDataIbu(FormInputIbu.value)">
+                            </button>
+                        </FlexboxLayout>
+
+                        <ActivityIndicator rowSpan="6" [busy]="showSpinner"></ActivityIndicator>
+                    </GridLayout>
+                </ScrollView>
+                <ScrollView *tabItem="{title: 'Table Data Ibu'}">
+                    <StackLayout paddingTop="20">
+                        <ListView [items]="DataIbu" class="list-group" height="100%">
+                            <ng-template let-item="item" let-i="index">
+                                <FlexboxLayout flexDirection="column">
+                                    <label [text]="'Ibu ' + (item.nama_ibu | titlecase)"
+                                        class="list-group-item listViewHeader">
+                                    </label>
+                                    <label [text]="item.no_hp" class="list-group-item listViewContent">
+                                    </label>
+                                    <label
+                                        text="{{ (item.domisili | titlecase)}}, {{  'RT ' + (item.rt) }} / {{  'RW ' + (item.rw) }}"
+                                        class="list-group-item listViewSubContent">
+                                    </label>
+                                </FlexboxLayout>
+                            </ng-template>
+                        </ListView>
+                    </StackLayout>
+                </ScrollView>
+            </TabView>
+        </StackLayout>
+    </FlexboxLayout>
+</Page>

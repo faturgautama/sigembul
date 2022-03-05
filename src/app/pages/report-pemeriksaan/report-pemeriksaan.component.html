@@ -1,0 +1,19 @@
+<FlexboxLayout flexDirection="column" class="flexboxBerandaStyle" padding="0">
+    <StackLayout marginTop="70">
+        <label text="Hasil Pemeriksaan" fontSize="30" marginBottom="70" paddingLeft="20">
+        </label>
+
+        <FlexboxLayout flexDirection="column">
+            <label text="Pilih Tanggal" class="inputFieldLabelStyle"></label>
+            <DatePickerField class="inputFieldStyle" dateFormat="MMMM yyyy" maxDate="{{ maxDate }}" date="{{ maxDate }}"
+                (dateChange)="onChangeDatepicker($event)">
+            </DatePickerField>
+        </FlexboxLayout>
+
+        <FlexboxLayout flexDirection="column">
+            <button text="Unduh Laporan" fontSize="15" class="save"
+                (tap)="onUnduhReportHasilPemeriksaan(FormUnduhReport.value)">
+            </button>
+        </FlexboxLayout>
+    </StackLayout>
+</FlexboxLayout>

@@ -1,0 +1,101 @@
+<Page xmlns="http://schemas.nativescript.org/tns.xsd" xmlns:datetime="@nativescript/datetimepicker">
+    <FlexboxLayout flexDirection="column" class="flexboxBerandaStyle" justifyContent="center" padding="0">
+        <StackLayout marginTop="70">
+            <label text="Input Data Balita" fontSize="30" marginBottom="50" paddingLeft="20">
+            </label>
+
+            <TabView selectedIndex="0" tabBackgroundColor="rgba(255, 255, 255, 0)" tabTextColor="black"
+                selectedTabTextColor="black">
+                <ScrollView *tabItem="{title: 'Input Data Balita'}">
+                    <GridLayout rows="auto, auto, auto, auto, auto, auto, auto, auto, auto" paddingTop="20"
+                        [formGroup]="FormInputBalita">
+                        <!-- Nama Ibu -->
+                        <FlexboxLayout row="0" flexDirection="column">
+                            <label text="Nama Lengkap Ibu" class="inputFieldLabelStyle"></label>
+                            <DropDown class="dropdownFieldStyle" itemsTextAlignment="left" [items]="DataIbu"
+                                backgroundColor="white" (selectedIndexChanged)="onChangeIbu($event)">
+                            </DropDown>
+                        </FlexboxLayout>
+
+                        <!-- NIK Balita -->
+                        <FlexboxLayout row="1" flexDirection="column">
+                            <label text="NIK Balita" class="inputFieldLabelStyle"></label>
+                            <TextField class="inputFieldStyle" formControlName="nik_bayi">
+                            </TextField>
+                        </FlexboxLayout>
+
+                        <!-- Nama Balita -->
+                        <FlexboxLayout row="2" flexDirection="column">
+                            <label text="Nama Lengkap Balita" class="inputFieldLabelStyle"></label>
+                            <TextField class="inputFieldStyle" formControlName="nama_bayi">
+                            </TextField>
+                        </FlexboxLayout>
+
+                        <!-- Jenis Kelamin -->
+                        <FlexboxLayout row="3" flexDirection="column">
+                            <label text="Jenis Kelamin" class="inputFieldLabelStyle"></label>
+                            <DropDown class="dropdownFieldStyle" itemsTextAlignment="left" [items]="DataJenisKelamin"
+                                backgroundColor="white" (selectedIndexChanged)="onChangeJenisKelamin($event)">
+                            </DropDown>
+                        </FlexboxLayout>
+
+                        <!-- Tanggal Lahir -->
+                        <FlexboxLayout row="4" flexDirection="column">
+                            <label text="Tanggal Lahir" class="inputFieldLabelStyle"></label>
+                            <DatePickerField class="inputFieldStyle" dateFormat="dd MMMM yyyy"
+                                (dateChange)="onChangeDatepicker($event)">
+                            </DatePickerField>
+                        </FlexboxLayout>
+
+                        <!-- Berat Badan Lahir -->
+                        <FlexboxLayout row="5" flexDirection="column">
+                            <label text="Berat Badan Lahir (kg)" class="inputFieldLabelStyle"></label>
+                            <TextField class="inputFieldStyle" formControlName="berat_lahir">
+                            </TextField>
+                        </FlexboxLayout>
+
+                        <!-- Panjang Badan Lahir -->
+                        <FlexboxLayout row="6" flexDirection="column">
+                            <label text="Panjang Badan Lahir (cm)" class="inputFieldLabelStyle"></label>
+                            <TextField class="inputFieldStyle" formControlName="panjang_lahir">
+                            </TextField>
+                        </FlexboxLayout>
+
+                        <!-- Masih Asi -->
+                        <FlexboxLayout row="7" flexDirection="row">
+                            <label text="Masih Asi" class="inputFieldLabelStyle" paddingTop="15"></label>
+                            <Switch checked="true" (checkedChange)="onChangeMasihAsi($event)">
+                            </Switch>
+                        </FlexboxLayout>
+
+                        <!-- Simpan -->
+                        <FlexboxLayout row="8" flexDirection="column" marginBottom="20">
+                            <button text="Simpan Data Balita" fontSize="15" class="save"
+                                (tap)="onSubmitFormInputDataBalita(FormInputBalita.value)">
+                            </button>
+                        </FlexboxLayout>
+
+                        <ActivityIndicator rowSpan="9" [busy]="showSpinner"></ActivityIndicator>
+                    </GridLayout>
+                </ScrollView>
+                <ScrollView *tabItem="{title: 'Table Data Balita'}">
+                    <ListView [items]="DataBalita" class="list-group" height="100%">
+                        <ng-template let-item="item" let-i="index">
+                            <FlexboxLayout flexDirection="column">
+                                <label [text]="item.nama_bayi | titlecase" class="list-group-item listViewHeader">
+                                </label>
+                                <label [text]="'Ibu ' +(item.nama_ibu | titlecase)"
+                                    class="list-group-item listViewContent">
+                                </label>
+                                <label
+                                    text="{{ (item.domisili | titlecase)}}, {{  'RT ' + (item.rt) }} / {{  'RW ' + (item.rw) }}"
+                                    class="list-group-item listViewSubContent">
+                                </label>
+                            </FlexboxLayout>
+                        </ng-template>
+                    </ListView>
+                </ScrollView>
+            </TabView>
+        </StackLayout>
+    </FlexboxLayout>
+</Page>

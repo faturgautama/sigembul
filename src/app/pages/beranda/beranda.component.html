@@ -1,0 +1,65 @@
+<Page class="ns-light">
+    <FlexboxLayout flexDirection="column" class="flexboxLoginStyle">
+        <ScrollView>
+            <FlexboxLayout flexDirection="column" padding="0 20" marginTop="55">
+                <ns-navbar></ns-navbar>
+
+                <!-- Card Logo Posyandu -->
+                <FlexboxLayout flexDirection="column" class="flexboxCardBeranda" width="auto">
+                    <image src="~/app/assets/image/posyandu.png" height="100"></image>
+                    <label text="Posyandu {{ PosyanduName }}" fontSize="20" textAlignment="center" marginBottom="0">
+                    </label>
+                </FlexboxLayout>
+
+                <FlexboxLayout flexDirection="row" marginTop="10">
+                    <!-- Card Input Data Ibu -->
+                    <FlexboxLayout flexDirection="column" class="flexboxCardBeranda" width="50%"
+                        (tap)="onNavigateToDataIbu()">
+                        <image src="~/app/assets/image/ibu.png" width="125"></image>
+                        <label text="Input Data Ibu" fontSize="15" textAlignment="center"
+                            style="color: #2f80ed; font-weight: 500;">
+                        </label>
+                    </FlexboxLayout>
+
+                    <!-- Card Input Data Balita -->
+                    <FlexboxLayout flexDirection="column" class="flexboxCardBeranda" width="50%"
+                        (tap)="onNavigateToDataBalita()">
+                        <image src="~/app/assets/image/balita.png" width="125"></image>
+                        <label text="Input Data Balita" fontSize="15" textAlignment="center"
+                            style="color: #2f80ed; font-weight: 500;">
+                        </label>
+                    </FlexboxLayout>
+                </FlexboxLayout>
+
+                <FlexboxLayout flexDirection="row" marginTop="10" justifyContent="center">
+                    <!-- Card Hitung Stunting -->
+                    <FlexboxLayout flexDirection="column" class="flexboxCardBeranda" width="50%"
+                        (tap)="onNavigateToHitungStunting()">
+                        <image src="~/app/assets/image/hitung.png" width="125"></image>
+                        <label text="Hitung Stunting" fontSize="15" textAlignment="center"
+                            style="color: #2f80ed; font-weight: 500;">
+                        </label>
+                    </FlexboxLayout>
+
+                    <FlexboxLayout flexDirection="column" class="flexboxCardBeranda" width="50%"
+                        (tap)="onNavigateToMateriEdukasi()">
+                        <image src="~/app/assets/image/education.png" width="125"></image>
+                        <label text="Materi Edukasi" fontSize="15" textAlignment="center"
+                            style="color: #2f80ed; font-weight: 500;">
+                        </label>
+                    </FlexboxLayout>
+                </FlexboxLayout>
+
+                <FlexboxLayout flexDirection="row" marginTop="10" justifyContent="center">
+                    <FlexboxLayout flexDirection="column" class="flexboxCardBeranda" width="50%"
+                        (tap)="onNavigateToReportPemeriksaan()">
+                        <image src="~/app/assets/image/update.png" width="125"></image>
+                        <label text="Hasil Pemeriksaan" fontSize="15" textAlignment="center"
+                            style="color: #2f80ed; font-weight: 500;">
+                        </label>
+                    </FlexboxLayout>
+                </FlexboxLayout>
+            </FlexboxLayout>
+        </ScrollView>
+    </FlexboxLayout>
+</Page>
